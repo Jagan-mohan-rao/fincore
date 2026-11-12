@@ -233,14 +233,14 @@ The MySQL values in `docker-compose.yml` are local demo defaults. If you change 
 
 > “FinCore is a Java Spring Boot banking transaction demo backed by MySQL. A customer signs in and receives a signed JWT, which the API uses to identify the owner of each account. Banking operations use JDBC and database transactions; transfers lock both accounts and write both ledger entries atomically so a partial transfer cannot be committed. The dashboard reads actual account and ledger data and formats it as INR. I use Flyway for schema changes and JUnit with Mockito for business-rule tests. Deposits and transfers are simulated in this project and do not move real money.”
 
-### Questions evaluators may ask
+<!-- ### Questions evaluators may ask
 
 - **Why not use JPA?** JDBC makes the SQL, joins, aggregates, and `FOR UPDATE` row locks explicit for this project.
 - **How are transfers kept consistent?** The backend locks both rows in ID order, validates funds and status, then updates balances and writes both ledger rows in the same `@Transactional` method.
 - **How do you prevent a user from reading another user's account?** The customer ID comes from the verified JWT subject and is included in account ownership checks; the API does not trust a customer ID submitted by the browser.
 - **How are passwords protected?** BCrypt hashes the password before storage; login compares the entered value against that hash.
 - **How are dashboard figures calculated?** SQL aggregates deposits, withdrawals, and external customer transfers from ledger records. The chart groups the same transaction types by month. Self-transfers are omitted from customer income/expense totals.
-- **Is this connected to a real bank?** No. Deposits are simulated ledger entries and transfers only move balances between FinCore demo accounts.
+- **Is this connected to a real bank?** No. Deposits are simulated ledger entries and transfers only move balances between FinCore demo accounts. -->
 
 ## REST API guide
 
